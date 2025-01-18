@@ -1,4 +1,4 @@
-package org.bloku.support.dummy;
+package org.bloku.support.domain;
 
 public record Request(String message) {
 }
