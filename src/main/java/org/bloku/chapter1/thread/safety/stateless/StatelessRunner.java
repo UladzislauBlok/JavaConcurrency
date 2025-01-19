@@ -11,7 +11,7 @@ import java.util.Random;
 import static java.lang.Thread.currentThread;
 
 public class StatelessRunner {
-    private static final String printPattern = "Request: %s completed with response %s in thread %s%n";
+    private static final String TASK_COMPLETED_MESSAGE = "Request: %s completed with response %s in thread %s%n";
     private static final int THREADS = 4;
     private static final int MIN_WORDS_IN_REQUEST = 3;
     private static final int MAX_WORDS_IN_REQUEST = 8;
@@ -36,7 +36,7 @@ public class StatelessRunner {
             int wordsInString = random.nextInt(MIN_WORDS_IN_REQUEST, MAX_WORDS_IN_REQUEST);
             Request request = new Request(inputData.generate(wordsInString));
             Response response = processor.process(request);
-            System.out.printf(printPattern, request, response, currentThread().getName());
+            System.out.printf(TASK_COMPLETED_MESSAGE, request, response, currentThread().getName());
         }
     }
 }
