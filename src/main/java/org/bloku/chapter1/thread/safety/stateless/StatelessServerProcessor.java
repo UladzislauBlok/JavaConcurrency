@@ -12,7 +12,7 @@ import static java.util.stream.Collectors.joining;
  * Since the actions of a thread accessing a stateless object cannot affect the correctness of operations in other threads, stateless objects are thread safe.
  */
 @ThreadSafe
-public class StatelessServerProcessor {
+class StatelessServerProcessor {
     private static final String RESPONSE_PATTERN = "%s:%d";
     private static final String DELIMITER = ",";
 
