@@ -1,6 +1,7 @@
 package org.bloku.support.thread;
 
 import static java.lang.Thread.currentThread;
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class ThreadUtil {
@@ -35,6 +36,15 @@ public class ThreadUtil {
     public static void sleepNSeconds(final int seconds) {
         try {
             SECONDS.sleep(seconds);
+        } catch (InterruptedException e) {
+            currentThread().interrupt();
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void sleepNMilliseconds(final int milliseconds) {
+        try {
+            MILLISECONDS.sleep(milliseconds);
         } catch (InterruptedException e) {
             currentThread().interrupt();
             throw new RuntimeException(e);
