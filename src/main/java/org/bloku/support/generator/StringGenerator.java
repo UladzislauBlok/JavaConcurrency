@@ -1,9 +1,12 @@
 package org.bloku.support.generator;
 
+import java.util.Collection;
 import java.util.Random;
+import java.util.stream.IntStream;
 
-public class StringGenerator implements Generator<String> {
-    private static final String DELIMITER = ",";
+class StringGenerator implements Generator<String> {
+    private static final int MIN_LENGTH = 1;
+    private static final int MAX_LENGTH = 50;
     private static final char[] CHARS = new char[] {
             'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
             'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
@@ -17,8 +20,13 @@ public class StringGenerator implements Generator<String> {
 
     @Override
     public String generate() {
+        return generate(MIN_LENGTH, MAX_LENGTH);
+    }
+
+    @Override
+    public String generate(final int minLength, final int maxLength) {
         StringBuilder sb = new StringBuilder();
-        int length = random.nextInt(1, CHARS.length);
+        int length = random.nextInt(minLength, maxLength);
         for (int i = 0; i < length; i++) {
             sb.append(CHARS[random.nextInt(CHARS.length)]);
         }
@@ -26,13 +34,16 @@ public class StringGenerator implements Generator<String> {
     }
 
     @Override
-    public String generate(int n) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < n - 1; i++) {
-            sb.append(generate());
-            sb.append(DELIMITER);
-        }
-        sb.append(generate());
-        return sb.toString();
+    public Collection<String> generate(final int n) {
+        return IntStream.range(0, n)
+                .mapToObj(i -> generate())
+                .toList();
+    }
+
+    @Override
+    public Collection<String> generate(int n, int minLength, int maxLength) {
+        return IntStream.range(0, n)
+                .mapToObj(i -> generate(minLength, maxLength))
+                .toList();
     }
 }

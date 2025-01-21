@@ -2,19 +2,15 @@ package org.bloku.chapter1.thread.safety.stateless;
 
 import org.bloku.support.domain.Request;
 import org.bloku.support.domain.Response;
-import org.bloku.support.generator.Generator;
-import org.bloku.support.generator.StringGenerator;
 import org.bloku.support.thread.ThreadUtil;
 
-import java.util.Random;
-
 import static java.lang.Thread.currentThread;
+import static org.bloku.support.generator.GeneratorFactory.getStringGenerator;
 
 public class StatelessRunner {
     private static final String TASK_COMPLETED_MESSAGE = "Request: %s completed with response %s in thread %s%n";
     private static final int THREADS = 4;
-    private static final int MIN_WORDS_IN_REQUEST = 3;
-    private static final int MAX_WORDS_IN_REQUEST = 8;
+    private static final int WORDS_IN_REQUEST = 5;
 
     private static final StatelessServerProcessor processor = new StatelessServerProcessor();
 
@@ -28,13 +24,12 @@ public class StatelessRunner {
     }
 
     private static class RequestTask implements Runnable {
-        private final Generator<String> inputData = new StringGenerator();
-        private final Random random = new Random(System.currentTimeMillis());
+        private static final String DELIMITER = ",";
 
         @Override
         public void run() {
-            int wordsInString = random.nextInt(MIN_WORDS_IN_REQUEST, MAX_WORDS_IN_REQUEST);
-            Request request = new Request(inputData.generate(wordsInString));
+            String message = String.join(DELIMITER, getStringGenerator().generate(WORDS_IN_REQUEST));
+            Request request = new Request(message);
             Response response = processor.process(request);
             System.out.printf(TASK_COMPLETED_MESSAGE, request, response, currentThread().getName());
         }
