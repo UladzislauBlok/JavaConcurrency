@@ -13,12 +13,12 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 @NotThreadSafe
 public class UnsafeAtomicProcessor {
-    private final AtomicInteger count = new AtomicInteger();
-    private final AtomicReference<String> value = new AtomicReference<>();
+    private final AtomicInteger number = new AtomicInteger();
+    private final AtomicReference<String> message = new AtomicReference<>();
 
     public NumberResponse process(final NumberRequest request) {
-        count.set(request.number());
-        value.set(request.message());
-        return new NumberResponse(value.get(), count.get());
+        number.set(request.number());
+        message.set(request.message());
+        return new NumberResponse(message.get(), number.get());
     }
 }
