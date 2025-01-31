@@ -6,8 +6,8 @@ import org.bloku.support.domain.NumberResponse;
 
 @ThreadSafe
 public class SynchronizedProcessor {
-    private int number;
-    private String message;
+    private volatile int number;
+    private volatile String message;
 
     public synchronized NumberResponse process(final NumberRequest request) {
         number = request.number();
