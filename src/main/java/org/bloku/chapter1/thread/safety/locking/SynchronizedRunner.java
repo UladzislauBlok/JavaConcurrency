@@ -21,7 +21,7 @@ public class SynchronizedRunner {
     private static final SynchronizedProcessor processor = new SynchronizedProcessor();
 
     /**
-     *
+     * After each execution we have expected results
      */
     public static void main(String[] args) {
         Thread[] threadsWithTasks = ThreadUtil.createNThreadsWithTasks(THREADS, new RequestTask());
