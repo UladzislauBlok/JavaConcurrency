@@ -1,4 +1,4 @@
-package org.bloku.chapter1.thread.safety.locking;
+package org.bloku.chapter2.thread.safety.locking;
 
 import org.bloku.support.domain.NumberRequest;
 import org.bloku.support.domain.NumberResponse;

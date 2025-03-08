@@ -1,4 +1,4 @@
-package org.bloku.chapter1.thread.safety.stateless;
+package org.bloku.chapter2.thread.safety.stateless;
 
 import org.bloku.support.annotation.ThreadSafe;
 import org.bloku.support.domain.Request;

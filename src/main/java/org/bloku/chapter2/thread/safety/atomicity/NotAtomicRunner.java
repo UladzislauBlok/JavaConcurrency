@@ -1,4 +1,4 @@
-package org.bloku.chapter1.thread.safety.atomicity;
+package org.bloku.chapter2.thread.safety.atomicity;
 
 import org.bloku.support.domain.Request;
 import org.bloku.support.thread.ThreadUtil;
