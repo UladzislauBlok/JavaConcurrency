@@ -10,3 +10,6 @@
 10. For every invariant that involves more than one variable, all the variables involved in that invariant must be guarded by the same lock
 11. There is frequently a tension between simplicity and performance. When implementing a synchronization policy, resist the temptation to prematurely sacrifice simplicity (potentially compromising safety) for the sake of performance
 12. Avoid holding locks during lengthy computations or operations at risk of not completing quickly such as network or console I/O.
+
+Chapter 3
+1. In the absence of synchronization, the compiler, processor, and runtime can do some downright weird things to the order in which operations appear to execute. Attempts to reason about the order in which memory actions “must” happen in insufficiently synchronized multithreaded programs will almost certainly be incorrect.
