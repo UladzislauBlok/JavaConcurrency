@@ -1,3 +1,4 @@
+Chapter 2. Thread safety
 1. When designing thread-safe classes, good object-oriented techniques — encapsulation, immutability, and clear specification of invariants—are your best friends.
 2. A class is thread-safe if it behaves correctly when accessed from multiple threads, regardless of the scheduling or interleaving of the execution of those threads by the runtime environment, and with no additional synchronization or other coordination on the part of the calling code.
 3. Thread-safe classes encapsulate any needed synchronization so that clients need not provide their own.
@@ -11,5 +12,5 @@
 11. There is frequently a tension between simplicity and performance. When implementing a synchronization policy, resist the temptation to prematurely sacrifice simplicity (potentially compromising safety) for the sake of performance
 12. Avoid holding locks during lengthy computations or operations at risk of not completing quickly such as network or console I/O.
 
-Chapter 3
+Chapter 3. Sharing objects
 1. In the absence of synchronization, the compiler, processor, and runtime can do some downright weird things to the order in which operations appear to execute. Attempts to reason about the order in which memory actions “must” happen in insufficiently synchronized multithreaded programs will almost certainly be incorrect.
