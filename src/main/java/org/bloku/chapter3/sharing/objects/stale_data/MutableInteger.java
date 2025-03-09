@@ -1,4 +1,4 @@
-package org.bloku.chapter3.sharing.objects.no_visibility.stale_data;
+package org.bloku.chapter3.sharing.objects.stale_data;
 
 import org.bloku.support.annotation.NotThreadSafe;
 import org.bloku.support.annotation.ThreadSafe;
@@ -33,6 +33,23 @@ public class MutableInteger {
         }
 
         public synchronized void set(int value) {
+            this.value = value;
+        }
+    }
+
+    /**
+     * A good way to think about volatile variables is to imagine that they behave roughly like the MutableSafeInteger class, replacing reads and writes of the volatile variable with calls to get and set.
+     * <p>Yet accessing a volatile variable performs no locking and so cannot cause the executing thread to block, making volatile variables a lighter-weight synchronization mechanism than synchronized
+     */
+    @ThreadSafe
+    public static class MutableSafeVolatileInteger {
+        private volatile int value;
+
+        public int get() {
+            return value;
+        }
+
+        public void set(int value) {
             this.value = value;
         }
     }
