@@ -17,3 +17,4 @@ Chapter 3. Sharing objects
 2. Locking is not just about mutual exclusion; it is also about memory visibility. To ensure that all threads see the most up-to-date values of shared mutable variables, the reading and writing threads must synchronize on a common lock.
 3. Use volatile variables only when they simplify implementing and verifying your synchronization policy; avoid using volatile variables when verifying correctness would require subtle reasoning about visibility. Good uses of volatile variables include ensuring the visibility of their own state, that of the object they refer to, or indicating that an important lifecycle event (such as initialization or shutdown) has occurred.
 4. Locking can guarantee both visibility and atomicity; volatile variables can only guarantee visibility.
+5. Do not allow the 'this' reference to escape during construction
