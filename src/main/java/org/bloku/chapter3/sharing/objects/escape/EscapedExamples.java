@@ -53,25 +53,6 @@ class EscapedExamples {
             Other.call(state);
         }
     }
-
-    /**
-     * When HiddenThisEscape publishes the EventListener, it implicitly publishes the enclosing HiddenThisEscape instance as well, because inner class instances contain a hidden reference to the enclosing instance.
-     */
-    static class HiddenThisEscape {
-
-        public HiddenThisEscape(EventSource source) {
-            source.registerListener(
-                    new EventListener() {
-                        public void onEvent(EventSource.Event e) {
-                            // dummy
-                        }
-                    });
-        }
-
-        public static class EventListener {
-
-        }
-    }
 }
 
 // For example proposes
@@ -79,17 +60,5 @@ class Other {
 
     public static void call(String state) {
         // dummy
-    }
-}
-
-// For example proposes
-class EventSource {
-
-    public void registerListener(EscapedExamples.HiddenThisEscape.EventListener listener) {
-        // dummy
-    }
-
-    public static class Event {
-
     }
 }
