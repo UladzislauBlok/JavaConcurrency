@@ -11,7 +11,7 @@ import java.util.Arrays;
  *<p> If the variables are to be updated, a new holder object is created, but any threads working with the previous holder still see it in a consistent state.
  */
 @Immutable
-class OneValueCache {
+public class OneValueCache {
     private final BigInteger lastNumber;
     private final BigInteger[] lastFactors;
 

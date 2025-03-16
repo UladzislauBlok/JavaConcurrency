@@ -24,4 +24,25 @@ Chapter 3. Sharing objects
    • All its fields are final;
    • It is properly constructed (the 'this' reference does not escape during construction).
 8. Just as it is a good practice to make all fields private unless they need greater visibility, it is a good practice to make all fields final unless they need to be mutable.
-9. 
+9. Immutable objects can be used safely by any thread without additional synchronization, even when synchronization is not used to publish them.
+10. To publish an object safely, both the reference to the object and the object’s state must be made visible to other threads at the same time. A properly constructed object can be safely published by:
+    • Initializing an object reference from a static initializer;
+    • Storing a reference to it into a volatile field or AtomicReference;
+    • Storing a reference to it into a final field of a properly constructed object;
+    • Storing a reference to it into a field that is properly guarded by a lock.
+11. Collection rules:
+    • Placing a key or value in a Hashtable, synchronizedMap, or ConcurrentMap safely publishes it to any thread that retrieves it from the Map (whether directly or via an iterator);
+    • Placing an element in a Vector, CopyOnWriteArrayList, CopyOnWriteArraySet, synchronizedList, or synchronizedSet safely publishes it to any thread that retrieves it from the collection;
+    • Placing an element on a BlockingQueue or a ConcurrentLinkedQueue safely publishes it to any thread that retrieves it from the queue.
+12. Safely published effectively immutable objects can be used safely by any thread without additional synchronization.
+13. The publication requirements for an object depend on its mutability:
+    • Immutable objects can be published through any mechanism;
+    • Effectively immutable objects must be safely published;
+    • Mutable objects must be safely published, and must be either thread safe or guarded by a lock.
+14. The most useful policies for using and sharing objects in a concurrent program are:
+    • Thread-confined. A thread-confined object is owned exclusively by and confined to one thread, and can be modified by its owning thread.
+    •Shared read-only. A shared read-only object can be accessed concurrently by multiple threads without additional synchronization, but cannot be modified by any thread. Shared read-only objects include immutable and effectively immutable objects.
+    • Shared thread-safe. A thread-safe object performs synchronization internally, so multiple threads can freely access it through its public interface without further synchronization.
+    •Guarded. A guarded object can be accessed only with a specific lock held. Guarded objects include those that are encapsulated within other thread-safe objects and published objects that are known to be guarded by a specific lock.
+
+Chapter 4.
