@@ -18,3 +18,10 @@ Chapter 3. Sharing objects
 3. Use volatile variables only when they simplify implementing and verifying your synchronization policy; avoid using volatile variables when verifying correctness would require subtle reasoning about visibility. Good uses of volatile variables include ensuring the visibility of their own state, that of the object they refer to, or indicating that an important lifecycle event (such as initialization or shutdown) has occurred.
 4. Locking can guarantee both visibility and atomicity; volatile variables can only guarantee visibility.
 5. Do not allow the 'this' reference to escape during construction
+6. Immutable objects are always thread-safe.
+7. An object is immutable if:
+   • Its state cannot be modified after construction;
+   • All its fields are final;
+   • It is properly constructed (the 'this' reference does not escape during construction).
+8. Just as it is a good practice to make all fields private unless they need greater visibility, it is a good practice to make all fields final unless they need to be mutable.
+9. 
