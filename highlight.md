@@ -45,4 +45,10 @@ Chapter 3. Sharing objects
     • Shared thread-safe. A thread-safe object performs synchronization internally, so multiple threads can freely access it through its public interface without further synchronization.
     •Guarded. A guarded object can be accessed only with a specific lock held. Guarded objects include those that are encapsulated within other thread-safe objects and published objects that are known to be guarded by a specific lock.
 
-Chapter 4.
+Chapter 4. Composing objects
+1. The design process for a thread-safe class should include these three basic elements:
+   • Identify the variables that form the object’s state;
+   • Identify the invariants that constrain the state variables;
+   • Establish a policy for managing concurrent access to the object’s state.
+2. You cannot ensure thread safety without understanding an object’s invariants and post conditions. Constraints on the valid values or state transitions for state variables can create atomicity and encapsulation requirements.
+3. 
