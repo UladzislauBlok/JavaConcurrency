@@ -55,3 +55,4 @@ Chapter 4. Composing objects
 4. Confinement makes it easier to build thread-safe classes because a class that confines its state can be analyzed for thread safety without having to examine the whole program.
 5. If a class is composed of multiple independent thread-safe state variables and has no operations that have any invalid state transitions, then it can delegate thread safety to the underlying state variables
 6. If a state variable is thread-safe, does not participate in any invariants that constrain its value, and has no prohibited state transitions for any of its operations, then it can safely be published.
+7. Document a class’s thread safety guarantees for its clients; document its synchronization policy for its maintainers.
