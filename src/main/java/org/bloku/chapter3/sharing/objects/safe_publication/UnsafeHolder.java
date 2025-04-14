@@ -2,7 +2,7 @@ package org.bloku.chapter3.sharing.objects.safe_publication;
 
 /**
  * You cannot rely on the integrity of partially constructed objects. An observing thread could see the object in an inconsistent state, and then later see its state suddenly change, even though it has not been modified since publication.
- *<p> In fact, if the Holder is published using the unsafe publication idiom in Listing 3.14, and a thread other than the publishing thread were to call assertSanity, it could throw AssertionError!
+ *<p> In fact, if the Holder is published using the unsafe publication idiom in example below, and a thread other than the publishing thread were to call assertSanity, it could throw AssertionError!
  */
 class UnsafeHolderPublication {
     public Holder holder;
