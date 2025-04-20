@@ -1,6 +1,6 @@
 package org.bloku.chapter3.sharing.objects.no_visibility;
 
-public class NoVisibility {
+class NoVisibility {
     boolean ready;
     int number;
 

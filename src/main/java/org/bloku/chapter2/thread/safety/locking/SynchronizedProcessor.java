@@ -8,7 +8,7 @@ import org.bloku.support.domain.NumberResponse;
  *  Intrinsic locks in Java act as mutexes (or mutual exclusion locks), which means that at most one thread may own the lock. When thread A attempts to acquire a lock held by thread B, A must wait, or block,untilB releases it. If B never releases the lock, A waits forever.
  */
 @ThreadSafe
-public class SynchronizedProcessor {
+class SynchronizedProcessor {
     private volatile int number;
     private volatile String message;
 

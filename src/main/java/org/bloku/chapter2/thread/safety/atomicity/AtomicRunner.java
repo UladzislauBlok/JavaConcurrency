@@ -6,7 +6,7 @@ import org.bloku.support.thread.ThreadUtil;
 import static java.lang.Thread.currentThread;
 import static java.util.stream.IntStream.range;
 
-public class AtomicRunner {
+class AtomicRunner {
     private static final String RESULT_MESSAGE_PATTERN = "Expected count: %d, actual count: %d";
     private static final String TASK_COMPLETED_MESSAGE = "Thread %s has completed %d requests";
     private static final int THREADS = 4;

@@ -3,7 +3,7 @@ package org.bloku.chapter5.building.blocks.synchronizers.latch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CountDownLatchRunner {
+class CountDownLatchRunner {
     private static final Logger log = LoggerFactory.getLogger(CountDownLatchRunner.class);
     private static final Context context = new Context();
 

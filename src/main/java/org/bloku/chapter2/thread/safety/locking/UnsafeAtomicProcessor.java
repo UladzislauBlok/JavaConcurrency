@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * <p>To preserve state consistency, update related state variables in a single atomic operation
  */
 @NotThreadSafe
-public class UnsafeAtomicProcessor {
+class UnsafeAtomicProcessor {
     private final AtomicInteger number = new AtomicInteger();
     private final AtomicReference<String> message = new AtomicReference<>();
 

@@ -11,7 +11,7 @@ import java.util.List;
  * <p>In order to use client-side locking, you must know what lock X uses.
  */
 @ThreadSafe
-public class SafeListHelper<E> {
+class SafeListHelper<E> {
     public List<E> list = Collections.synchronizedList(new ArrayList<E>());
 
     public boolean putIfAbsent(E x) {

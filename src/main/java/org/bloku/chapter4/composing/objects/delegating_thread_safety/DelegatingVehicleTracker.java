@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentMap;
  * If we had used the original MutablePoint class instead of Point, we would be breaking encapsulation by letting getLocations publish a reference to mutable state that is not thread-safe
  */
 @ThreadSafe
-public class DelegatingVehicleTracker {
+class DelegatingVehicleTracker {
     private final ConcurrentMap<String, Point> locations;
     private final Map<String, Point> unmodifiableMap;
 

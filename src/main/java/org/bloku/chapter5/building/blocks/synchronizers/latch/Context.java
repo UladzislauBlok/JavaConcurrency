@@ -8,7 +8,7 @@ import java.util.concurrent.CountDownLatch;
 import static java.lang.Thread.currentThread;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-public class Context {
+class Context {
     private static final Logger log = LoggerFactory.getLogger(Context.class);
     private final CountDownLatch countDownLatch = new CountDownLatch(1);
 

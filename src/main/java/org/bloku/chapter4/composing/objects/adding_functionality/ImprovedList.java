@@ -12,7 +12,7 @@ import java.util.ListIterator;
  *<p> It does not care whether the underlying List is thread-safe, because it provides its own consistent locking that provides thread safety even if the List is not thread-safe or changes its locking implementation.
  */
 @ThreadSafe
-public class ImprovedList<T> implements List<T> {
+class ImprovedList<T> implements List<T> {
     private final List<T> list;
 
     public ImprovedList(List<T> list) {

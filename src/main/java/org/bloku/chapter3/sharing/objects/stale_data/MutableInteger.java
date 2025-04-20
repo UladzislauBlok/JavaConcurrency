@@ -3,7 +3,7 @@ package org.bloku.chapter3.sharing.objects.stale_data;
 import org.bloku.support.annotation.NotThreadSafe;
 import org.bloku.support.annotation.ThreadSafe;
 
-public class MutableInteger {
+class MutableInteger {
 
     /**
      * This class is not thread-safe because the value field is accessed from both get and set without synchronization. Among other hazards, it is susceptible to stale values: if one thread calls set, other threads calling get may or may not see that update.

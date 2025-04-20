@@ -8,7 +8,7 @@ import java.util.Comparator;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-public class ConfinementExamples {
+class ConfinementExamples {
 
     /**
      * Ad-hoc thread confinement describes when the responsibility for maintaining thread confinement falls entirely on the implementation.

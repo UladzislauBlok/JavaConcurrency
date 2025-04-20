@@ -1,6 +1,6 @@
 package org.bloku.chapter3.sharing.objects.escape;
 
-public class HiddenThisEscapeExamples {
+class HiddenThisEscapeExamples {
 
     /**
      * When HiddenThisEscape publishes the EventListener, it implicitly publishes the enclosing HiddenThisEscape instance as well, because inner class instances contain a hidden reference to the enclosing instance.

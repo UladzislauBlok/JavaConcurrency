@@ -3,7 +3,7 @@ package org.bloku.chapter2.thread.safety.atomicity;
 import org.bloku.support.domain.ExpensiveObject;
 import org.bloku.support.thread.ThreadUtil;
 
-public class LazyInitRunner {
+class LazyInitRunner {
     private static final String RESULT_MESSAGE = "Lazy object was initialized %d times";
     private static final int THREADS = 10;
 

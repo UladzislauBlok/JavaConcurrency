@@ -1,4 +1,4 @@
-package org.bloku.chapter3.sharing.objects.immutability;
+package org.bloku.chapter3.sharing.objects.safe_publication;
 
 import org.bloku.support.annotation.Immutable;
 

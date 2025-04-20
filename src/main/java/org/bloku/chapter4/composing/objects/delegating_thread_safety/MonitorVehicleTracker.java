@@ -12,7 +12,7 @@ import java.util.Map;
  * Even though MutablePoint is not thread-safe, the tracker class is. Neither the map nor any of the mutable points it contains is ever published. When we need to return vehicle locations to callers, the appropriate values are copied using either the MutablePoint copy constructor or deepCopy, which creates a new Map whose values are copies of the keys and values from the old Map
  */
 @ThreadSafe
-public class MonitorVehicleTracker {
+class MonitorVehicleTracker {
     @GuardedBy("this")
     private final Map<String, MutablePoint> locations;
 

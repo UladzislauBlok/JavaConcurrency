@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * Using SafePoint, we can construct a vehicle tracker that publishes the underlying mutable state without undermining thread safety.
  */
 @ThreadSafe
-public class PublishingVehicleTracker {
+class PublishingVehicleTracker {
     private final Map<String, SafePoint> locations;
     private final Map<String, SafePoint> unmodifiableMap;
 

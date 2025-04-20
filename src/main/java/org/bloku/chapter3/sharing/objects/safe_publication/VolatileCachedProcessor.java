@@ -1,6 +1,5 @@
 package org.bloku.chapter3.sharing.objects.safe_publication;
 
-import org.bloku.chapter3.sharing.objects.immutability.OneValueCache;
 import org.bloku.support.domain.Request;
 import org.bloku.support.domain.Response;
 
@@ -15,7 +14,7 @@ import java.util.stream.IntStream;
  * <p> VolatileCachedFactorizer in uses a OneValueCache to store the cached number and factors. When a thread sets the volatile cache field to reference a new OneValueCache, the new cached data becomes immediately visible to other threads.
  * <p> The cache-related operations cannot interfere with each other because OneValueCache is immutable and the cache field is accessed only once in each of the relevant code paths. This combination of an immutable holder object for multiple state variables related by an invariant, and a volatile reference used to ensure its timely visibility, allows VolatileCachedFactorizer to be thread-safe even though it does no explicit locking.
  */
-public class VolatileCachedProcessor {
+class VolatileCachedProcessor {
 
     private static final Predicate<String> unexpectedFormat = Pattern.compile("\\d+:\\d+").asMatchPredicate().negate();
 

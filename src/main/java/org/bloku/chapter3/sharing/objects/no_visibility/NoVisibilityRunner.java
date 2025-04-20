@@ -1,6 +1,6 @@
 package org.bloku.chapter3.sharing.objects.no_visibility;
 
-public class NoVisibilityRunner {
+class NoVisibilityRunner {
     private static final int NUM_OF_RUNS = 10000;
 
     /**

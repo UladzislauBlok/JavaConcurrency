@@ -14,7 +14,7 @@ import static java.lang.Thread.currentThread;
 import static org.bloku.support.generator.GeneratorFactory.getIntegerGenerator;
 import static org.bloku.support.generator.GeneratorFactory.getStringGenerator;
 
-public class UnsafeAtomicRunner {
+class UnsafeAtomicRunner {
     private static final String UNEXPECTED_RESPONSE_MESSAGE = "Got an unexpected response in thead %s.%n Expected: %s, was: %s%n";
     private static final int THREADS = 10;
     private static final int REQUEST_PER_THREAD = 20;

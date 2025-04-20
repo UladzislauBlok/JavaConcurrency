@@ -10,7 +10,7 @@ import java.util.Vector;
  *<p> The synchronization policy of Vector is fixed by its specification, so BetterVector would not suffer from this problem.
  */
 @ThreadSafe
-public class BetterVector<E> extends Vector<E> {
+class BetterVector<E> extends Vector<E> {
 
     public synchronized boolean putIfAbsent(E x) {
         boolean absent = !contains(x);

@@ -7,7 +7,7 @@ import org.bloku.support.thread.ThreadUtil;
 import static java.lang.Thread.currentThread;
 import static org.bloku.support.generator.GeneratorFactory.getStringGenerator;
 
-public class StatelessRunner {
+class StatelessRunner {
     private static final String TASK_COMPLETED_MESSAGE = "Request: %s completed with response %s in thread %s%n";
     private static final int THREADS = 4;
     private static final int WORDS_IN_REQUEST = 5;

@@ -6,7 +6,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /**
  * We can also delegate thread safety to more than one underlying state variable as long as those underlying state variables are independent, meaning that the composite class does not impose any invariants involving the multiple state variables.
  */
-public class VisualComponent {
+class VisualComponent {
     private final List<KeyListener> keyListeners = new CopyOnWriteArrayList<>();
     private final List<MouseListener> mouseListeners = new CopyOnWriteArrayList<>();
 
