@@ -4,7 +4,7 @@ import org.bloku.support.domain.Processor;
 import org.bloku.support.domain.Request;
 import org.bloku.support.domain.Response;
 
-public class DatabaseProcessor implements Processor<Request, Response> {
+class DatabaseProcessor implements Processor<Request, Response> {
     private static final String REQUEST_MESSAGE_PATTERN = "Read request: %s. Thread: %s%n";
     private static final String DB_RESPONSE_MESSAGE_PATTERN = "Read db response: %s. Thread: %s%n";
     private static final String RESPONSE_MESSAGE_PATTERN = "Send response: %s. Thread: %s%n";
