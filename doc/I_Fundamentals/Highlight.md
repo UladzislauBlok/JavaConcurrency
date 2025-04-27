@@ -61,4 +61,3 @@ Chapter 5. Building Blocks
 1. Just as encapsulating an object’s state makes it easier to preserve its invariants, encapsulating its synchronization makes it easier to enforce its synchronization policy.
 2. Replacing synchronized collections with concurrent collections can offer dramatic scalability improvements with little risk.
 3. Bounded queues are a powerful resource management tool for building reliable applications: they make your program more robust to overload by throttling activities that threaten to produce more work than can be handled.
-4. 
