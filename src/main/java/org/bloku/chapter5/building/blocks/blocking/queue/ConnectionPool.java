@@ -5,7 +5,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.stream.IntStream;
 
-import static java.util.concurrent.TimeUnit.SECONDS;
+import static org.bloku.support.thread.ThreadUtil.sleepNSeconds;
 
 class ConnectionPool {
     private final BlockingQueue<Connection> queue;
@@ -35,12 +35,7 @@ class ConnectionPool {
     static class PostgresConnection implements Connection {
 
         public String read() {
-            try {
-                SECONDS.sleep(3);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                throw new RuntimeException(e);
-            }
+            sleepNSeconds(3);
             return "DB_RESPONSE";
         }
 

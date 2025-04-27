@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import java.util.concurrent.CountDownLatch;
 
 import static java.lang.Thread.currentThread;
-import static java.util.concurrent.TimeUnit.SECONDS;
+import static org.bloku.support.thread.ThreadUtil.sleepNSeconds;
 
 class Context {
     private static final Logger log = LoggerFactory.getLogger(Context.class);
@@ -14,12 +14,7 @@ class Context {
 
     void init() {
         log.info("Start context initialization");
-        try {
-            SECONDS.sleep(3);
-        } catch (InterruptedException e) {
-            currentThread().interrupt();
-            throw new RuntimeException(e);
-        }
+        sleepNSeconds(3);
         countDownLatch.countDown();
         log.info("Context is ready");
     }

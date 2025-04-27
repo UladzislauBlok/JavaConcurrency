@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static java.lang.Thread.currentThread;
-import static java.util.concurrent.TimeUnit.SECONDS;
+import static org.bloku.support.thread.ThreadUtil.sleepNSeconds;
 
 class CustomQueueRunner {
     private static final Logger log = LoggerFactory.getLogger(CustomQueueRunner.class);
@@ -38,15 +38,10 @@ class CustomQueueRunner {
 
         @Override
         public void run() {
-            try {
-                for (int i = 0; i < 5; i++) {
-                    String messageFromQueue = queue.poll();
-                    SECONDS.sleep(3);
-                    log.info("Message {} has been processed successfully", messageFromQueue);
-                }
-            } catch (InterruptedException e) {
-                currentThread().interrupt();
-                throw new RuntimeException(e);
+            for (int i = 0; i < 5; i++) {
+                String messageFromQueue = queue.poll();
+                sleepNSeconds(3);
+                log.info("Message {} has been processed successfully", messageFromQueue);
             }
         }
     }

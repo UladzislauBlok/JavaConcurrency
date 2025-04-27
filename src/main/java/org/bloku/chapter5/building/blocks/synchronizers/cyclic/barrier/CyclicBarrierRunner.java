@@ -9,7 +9,7 @@ import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
 import static java.lang.Thread.currentThread;
-import static java.util.concurrent.TimeUnit.SECONDS;
+import static org.bloku.support.thread.ThreadUtil.sleepNSeconds;
 
 public class CyclicBarrierRunner {
     private static final Logger log = LoggerFactory.getLogger(CyclicBarrierRunner.class);
@@ -28,7 +28,7 @@ public class CyclicBarrierRunner {
             try {
                 for (int i = 0; i < 3; i++) {
                     log.info("Start processing task");
-                    SECONDS.sleep(random.nextInt(5));
+                    sleepNSeconds(random.nextInt(5));
                     log.info("Processing is finished");
                     barrier.await();
                 }
