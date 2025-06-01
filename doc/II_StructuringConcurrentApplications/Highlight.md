@@ -6,4 +6,9 @@ Chapter 6. Task Executions
    * newSingleThreadExecutor. A single-threaded executor creates a single worker thread to process tasks, replacing it if it dies unexpectedly. Tasks are guaranteed to be processed sequentially according to the order imposed by the task queue (FIFO, LIFO, priority order).
    * newScheduledThreadPool. A fixed-size thread pool that supports delayed and periodic task execution, similar to Timer.
 3. The real performance payoff of dividing a program’s workload into tasks comes when there are a large number of independent, homogeneous tasks that can be processed concurrently.
+
+Chapter 7. Cancellation and Shutdown
+1. There is nothing in the API or language specification that ties interruption to any specific cancellation semantics, but in practice, using interruption for anything but cancellation is fragile and difficult to sustain in larger applications.
+2. Calling interrupt does not necessarily stop the target thread from doing what it is doing; it merely delivers the message that interruption has been requested.
+3. Interruption is usually the most sensible way to implement cancellation.
 4. 
