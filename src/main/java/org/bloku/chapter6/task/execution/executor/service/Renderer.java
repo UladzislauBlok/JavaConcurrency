@@ -1,7 +1,6 @@
 package org.bloku.chapter6.task.execution.executor.service;
 
 import java.util.List;
-import java.util.concurrent.Callable;
 import java.util.concurrent.CompletionService;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorCompletionService;

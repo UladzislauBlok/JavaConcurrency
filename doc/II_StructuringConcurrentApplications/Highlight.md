@@ -11,4 +11,7 @@ Chapter 7. Cancellation and Shutdown
 1. There is nothing in the API or language specification that ties interruption to any specific cancellation semantics, but in practice, using interruption for anything but cancellation is fragile and difficult to sustain in larger applications.
 2. Calling interrupt does not necessarily stop the target thread from doing what it is doing; it merely delivers the message that interruption has been requested.
 3. Interruption is usually the most sensible way to implement cancellation.
-4. 
+4. Because each thread has its own interruption policy, you should not interrupt a thread unless you know what interruption means to that thread.
+5. Only code that implements a thread’s interruption policy may swallow an interruption request. General-purpose task and library code should never swallow interruption requests.
+6. When Future#get throws InterruptedException or TimeoutException and you know that the result is no longer needed by the program, cancel the task with Future#cancel.
+7. 

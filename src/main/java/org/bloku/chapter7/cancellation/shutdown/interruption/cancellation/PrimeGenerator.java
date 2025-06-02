@@ -1,4 +1,4 @@
-package org.bloku.chapter7.cancellation.shutdown.interruption;
+package org.bloku.chapter7.cancellation.shutdown.interruption.cancellation;
 
 import org.bloku.support.annotation.GuardedBy;
 
@@ -38,7 +38,7 @@ class PrimeGenerator {
     }
 
     /**
-     * If a task that uses above approach, calls a blocking method such as BlockingQueue.put, could have a more serious problem—the task might never check the cancellation flag and therefore might never terminate
+     * If a task that uses above approach, calls a blocking method such as BlockingQueue#put, could have a more serious problem—the task might never check the cancellation flag and therefore might never terminate
      */
     private static class BrokenPrimeProducer extends Thread {
 
