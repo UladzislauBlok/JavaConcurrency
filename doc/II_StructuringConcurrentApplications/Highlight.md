@@ -14,4 +14,5 @@ Chapter 7. Cancellation and Shutdown
 4. Because each thread has its own interruption policy, you should not interrupt a thread unless you know what interruption means to that thread.
 5. Only code that implements a thread’s interruption policy may swallow an interruption request. General-purpose task and library code should never swallow interruption requests.
 6. When Future#get throws InterruptedException or TimeoutException and you know that the result is no longer needed by the program, cancel the task with Future#cancel.
-7. 
+7. Provide lifecycle methods whenever a thread-owning service has a lifetime longer than that of the method that created it.
+8. 
