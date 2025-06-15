@@ -4,9 +4,57 @@ import org.bloku.support.annotation.GuardedBy;
 
 import java.io.PrintWriter;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.RejectedExecutionException;
+import java.util.concurrent.TimeUnit;
 
 class LogWriter {
+
+    /**
+     * Encapsulating an ExecutorService extends the ownership chain from application to service to thread by adding another link; each member of the chain manages the lifecycle of the services or threads it owns.
+     */
+    private static class ExecutorBasedLogger {
+        private final ExecutorService exec = Executors.newSingleThreadExecutor();
+        private final PrintWriter writer;
+
+        private ExecutorBasedLogger(PrintWriter writer) {
+            this.writer = writer;
+        }
+
+        public void start() {
+        }
+
+        public void stop() throws InterruptedException {
+            try {
+                exec.shutdown();
+                exec.awaitTermination(1, TimeUnit.DAYS);
+            } finally {
+                writer.close();
+            }
+        }
+
+        public void log(String msg) {
+            try {
+                exec.execute(new WriteTask(msg));
+            } catch (RejectedExecutionException ignored) {
+            }
+        }
+
+        private class WriteTask implements Runnable {
+            private final String msg;
+
+            private WriteTask(String msg) {
+                this.msg = msg;
+            }
+
+            @Override
+            public void run() {
+                writer.println(msg);
+            }
+        }
+    }
 
     /**
      * The way to provide reliable shutdown for LogWriter is to fix the race condition, which means making the submission of a new log message atomic.<br>
