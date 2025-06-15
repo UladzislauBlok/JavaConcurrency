@@ -34,9 +34,11 @@ public class ScheduledCancel {
                 private volatile Throwable t;
 
                 public void run() {
-                    try { r.run(); }
-                    catch (Throwable t) { this.t = t; }
-
+                    try {
+                        r.run();
+                    } catch (Throwable t) {
+                        this.t = t;
+                    }
                 }
 
                 void rethrow() {
