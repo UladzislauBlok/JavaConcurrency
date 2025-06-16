@@ -15,4 +15,6 @@ Chapter 7. Cancellation and Shutdown
 5. Only code that implements a thread’s interruption policy may swallow an interruption request. General-purpose task and library code should never swallow interruption requests.
 6. When Future#get throws InterruptedException or TimeoutException and you know that the result is no longer needed by the program, cancel the task with Future#cancel.
 7. Provide lifecycle methods whenever a thread-owning service has a lifetime longer than that of the method that created it.
-8. 
+8. In long-running applications, always use uncaught exception handlers for all threads that at least log the exception.
+9. Daemon threads are not a good substitute for properly managing the lifecycle of services within an application.
+10. Avoid finalizers.
