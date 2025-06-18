@@ -18,3 +18,10 @@ Chapter 7. Cancellation and Shutdown
 8. In long-running applications, always use uncaught exception handlers for all threads that at least log the exception.
 9. Daemon threads are not a good substitute for properly managing the lifecycle of services within an application.
 10. Avoid finalizers.
+
+Chapter 8. Applying Thread Pools
+1. Some tasks have characteristics that require or preclude a specific execution policy. Tasks that depend on other tasks require that the thread pool be large enough that tasks are never queued or rejected; tasks that exploit thread confinement require sequential execution. Document these requirements so that future maintainers do not undermine safety or liveness by substituting an incompatible execution policy.
+2. Whenever you submit to an Executor tasks that are not independent, be aware of the possibility of thread starvation deadlock, and document any pool sizing or configuration constraints in the code or configuration file where the Executor is configured.
+3. ![pool_size.png](img.png)
+4. The newCachedThreadPool factory is a good default choice for an Executor, providing better queuing performance than a fixed thread pool. A fixed size thread pool is a good choice when you need to limit the number of concurrent tasks for resource-management purposes, as in a server application that accepts requests from network clients and would otherwise be vulnerable to overload.
+5. Sequential loop iterations are suitable for parallelization when each iteration is independent of the others and the work done in each iteration of the loop body is significant enough to offset the cost of managing a new task.
