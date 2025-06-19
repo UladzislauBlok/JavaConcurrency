@@ -1,4 +1,4 @@
-package org.bloku.chapter7.cancellation.shutdown.interruption.parallelizingrecursive.algorithms;
+package org.bloku.chapter8.applying.thread.pool.parallelizingrecursive.algorithms;
 
 import java.util.Collection;
 import java.util.List;

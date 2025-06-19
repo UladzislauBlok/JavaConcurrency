@@ -1,4 +1,4 @@
-package org.bloku.chapter7.cancellation.shutdown.interruption.configuring.thread.pool;
+package org.bloku.chapter8.applying.thread.pool.configuring.thread.pool;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

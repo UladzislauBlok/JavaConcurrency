@@ -1,4 +1,4 @@
-package org.bloku.chapter7.cancellation.shutdown.interruption.parallelizingrecursive.algorithms;
+package org.bloku.chapter8.applying.thread.pool.parallelizingrecursive.algorithms;
 
 import org.bloku.support.annotation.GuardedBy;
 import org.bloku.support.annotation.Immutable;

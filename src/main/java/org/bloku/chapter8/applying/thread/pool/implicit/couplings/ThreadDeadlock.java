@@ -1,4 +1,4 @@
-package org.bloku.chapter7.cancellation.shutdown.interruption.implicit.couplings;
+package org.bloku.chapter8.applying.thread.pool.implicit.couplings;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
