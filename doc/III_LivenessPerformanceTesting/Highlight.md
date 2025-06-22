@@ -16,4 +16,10 @@ Chapter 11. Performance and Scalability
 4. Measure, don’t guess.
 5. All concurrent applications have some sources of serialization; if you think yours does not, look again.
 6. Don’t worry excessively about the cost of uncontended synchronization. The basic mechanism is already quite fast, and JVMs can perform additional optimizations that further reduce or eliminate the cost. Instead, focus optimization efforts on areas where lock contention actually occurs.
-7. 
+7. The principal threat to scalability in concurrent applications is the exclusive resource lock
+8. There are three ways to reduce lock contention:
+   * Reduce the duration for which locks are held;
+   * Reduce the frequency with which locks are requested; or
+   * Replace exclusive locks with coordination mechanisms that permit greater concurrency.
+9. Allocating objects is usually cheaper than synchronizing.
+10. 
