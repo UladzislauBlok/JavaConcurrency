@@ -39,4 +39,3 @@ Chapter 12. Testing Concurrent Programs
 12. <b>Misuse of Lock and Condition.</b><br> Using a Lock as the lock argument for a synchronized block is likely to be a typo, as is calling Condition#wait instead of await (though the latter would likely be caught in testing, since it would throw an IllegalMonitorStateException the first time it was called).
 13. <b>Sleeping or waiting while holding a lock.</b><br> Calling Thread#sleep with a lock held can prevent other threads from making progress for a long time and is therefore a potentially serious liveness hazard. Calling Object#wait or Condition#await with two locks held poses a similar hazard.
 14. <b>Spin loops.<b><br> Code that does nothing but spin (busy wait) checking a field for an expected value can waste CPU time and, if the field is not volatile, is not guaranteed to terminate. Latches or condition waits are often a better technique when waiting for a state transition to occur.
-15. 
