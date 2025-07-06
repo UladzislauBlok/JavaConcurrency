@@ -30,3 +30,25 @@ Chapter 15. Atomic Variables and Nonblocking Synchronization
 * quiescent state:
 
 ![quiescent_state.png](quiescent_state.png)
+
+Chapter 16. The Java Memory Model
+1. Reordering from PossibleReordering:
+
+![reordering.png](reordering.png)
+
+2. The rules for happens-before are:
+   * <b>Program order rule.</b> Each action in a thread happens-before every action in that thread that comes later in the program order.
+   * <b>Monitor lock rule.</b> An unlock on a monitor lock happens-before every subsequent lock on that same monitor lock.
+   * <b>Volatile variable rule.</b> A write to a volatile field happens-before every subsequent read of that same field.
+   * <b>Thread start rule.</b> A call to Thread#start on a thread happens-before every action in the started thread.
+   * <b>Thread termination rule.</b> Any action in a thread happens-before any other thread detects that thread has terminated, either by successfully return from Thread#join or by Thread#isAlive returning false.
+   * <b>Interruption rule.</b> A thread calling interrupt on another thread happens-before the interrupted thread detects the interrupt (either by having InterruptedException thrown, or invoking isInterrupted or interrupted).
+   * <b>Finalizer rule.</b> The end of a constructor for an object happens-before the start of the finalizer for that object.
+   * <b>Transitivity.</b> If A happens-before B, and B happens-before C, then A happens-before C.
+3. Happens-before in the Java Memory Model:
+
+![happens-before.png](happens-before.png)
+
+4. With the exception of immutable objects, it is not safe to use an object that has been initialized by another thread unless the publication happens-before the consuming thread uses it.
+5. Initialization safety guarantees that for properly constructed objects, all threads will see the correct values of final fields that were set by the constructor, regardless of how the object is published. Further, any variables that can be reached through a final field of a properly constructed object (such as the elements of a final array or the contents of a HashMap referenced by a final field) are also guaranteed to be visible to other threads.
+6. Initialization safety makes visibility guarantees only for the values that are reachable through final fields as of the time the constructor finishes. For values reachable through nonfinal fields, or values that may change after construction, you must use synchronization to ensure visibility.
