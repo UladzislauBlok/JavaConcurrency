@@ -18,3 +18,15 @@ Chapter 14. Building Custom Synchronizers
    * One-in, one-out. A notification on the condition variable enables at most one thread to proceed.
 6. Hazard warning: The equivalents of wait, notify, and notifyAll for Condition objects are await, signal, and signalAll. However, Condition extends Object, which means that it also has wait and notify methods. Be sure to use the proper versions—await and signal—instead!
 
+Chapter 15. Atomic Variables and Nonblocking Synchronization
+1. Treiber’s stack:
+
+![stack.png](stack.png)
+
+2. Michael-Scott nonblocking linked-queue:
+* intermediate state:
+
+![intermediate_state.png](intermediate_state.png)
+* quiescent state:
+
+![quiescent_state.png](quiescent_state.png)
